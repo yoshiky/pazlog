@@ -1,0 +1,15 @@
+p#notice 
+  = notice
+
+p 
+  strong Name:
+  = @monster.name
+p 
+  strong Book_no:
+  = @monster.book_no
+p 
+  strong descent:
+  = @monster.descent ? 'Yes' : 'No'
+
+p = link_to 'Edit', edit_monster_path(@monster)
+p = link_to 'Back', monsters_path
