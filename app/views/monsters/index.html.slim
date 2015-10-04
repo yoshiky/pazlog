@@ -1,0 +1,30 @@
+h1 List of Monsters
+
+p#notice 
+  = notice
+
+table
+  thead
+    tr
+      th BOOK_NO
+      th NAME
+      th DESCENT
+      th CREATED_AT
+      th UPDATED_AT
+      th DELETED_AT
+
+  tbody
+
+    - @monsters.each do |monster|
+      tr
+        td = monster.book_no
+        td = monster.name
+        td = monster.descent
+        td = monster.created_at
+        td = monster.updated_at
+        td = monster.deleted_at
+        td = link_to 'EDIT', edit_monster_path(monster)
+br
+
+= link_to 'ADD MONSTER', new_monster_path
+
