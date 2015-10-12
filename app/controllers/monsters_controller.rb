@@ -1,11 +1,8 @@
 class MonstersController < ApplicationController
-  before_action :set_monster, only: [:show, :edit, :update, :destroy]
+  before_action :set_monster, only: [:edit, :update, :destroy]
 
   def index
     @monsters = Monster.order(:book_no)
-  end
-
-  def show
   end
 
   def new
@@ -27,7 +24,7 @@ class MonstersController < ApplicationController
 
   def update
     if @monster.update(monster_params)
-      redirect_to @monster, notice: 'Monster was successfully updated.'
+      redirect_to monsters_url, notice: 'Monster was successfully updated.'
     else
       render :edit
     end
