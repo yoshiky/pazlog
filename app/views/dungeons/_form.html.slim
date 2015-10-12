@@ -1,0 +1,22 @@
+= form_for(@dungeon) do |f|
+  - if @dungeon.errors.any?
+    #error_explanation
+      h2 = pluralize @dungeon.errors.count, "error"
+      ul
+        - @dungeon.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :dungeon_kind_id
+    = f.collection_select :dungeon_kind_id, @dungeon_kinds, :id, :name
+  .field
+    = f.label :boss_monster_1
+    = f.collection_select :boss_monster_1_id, @descent_monsters, :id, :name
+  .field
+    = f.label :boss_monster_2
+    = f.collection_select :boss_monster_2_id, @descent_monsters, :id, :name, include_blank: true
+  .actions
+    = f.submit

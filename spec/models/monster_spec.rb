@@ -26,4 +26,5 @@ RSpec.describe Monster, type: :model do
                               book_no: nil)).not_to be_valid
     end
   end
+
 end

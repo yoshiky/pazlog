@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930145644) do
+ActiveRecord::Schema.define(version: 20151011133613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dungeon_kinds", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
+
+  create_table "dungeons", force: :cascade do |t|
+    t.string   "name",              null: false
+    t.integer  "dungeon_kind_id",   null: false
+    t.integer  "boss_monster_1_id"
+    t.integer  "boss_monster_2_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "deleted_at"
+  end
 
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
