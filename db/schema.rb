@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011133613) do
+ActiveRecord::Schema.define(version: 20151012174511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dungeon_histories", force: :cascade do |t|
+    t.date     "started_on"
+    t.date     "closed_on"
+    t.integer  "dungeon_id"
+    t.text     "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "dungeon_histories", ["dungeon_id"], name: "index_dungeon_histories_on_dungeon_id", using: :btree
 
   create_table "dungeon_kinds", force: :cascade do |t|
     t.string   "name"
@@ -51,4 +63,5 @@ ActiveRecord::Schema.define(version: 20151011133613) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "dungeon_histories", "dungeons"
 end

@@ -1,0 +1,19 @@
+= form_for(@dungeon_history) do |f|
+  - if @dungeon_history.errors.any?
+    #error_explanation
+      h2 = pluralize @dungeon_history.errors.count, "error"
+      ul
+        - @dungeon_history.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :started_on
+    = f.date_select :started_on, default: Date.today, use_month_numbers: true
+  .field
+    = f.label :closed_on
+    = f.date_select :closed_on, default: Date.today, use_month_numbers: true
+  .field
+    = f.label :dungeon
+    = f.collection_select :dungeon_id, @dungeons, :id, :name
+  .actions
+    = f.submit
