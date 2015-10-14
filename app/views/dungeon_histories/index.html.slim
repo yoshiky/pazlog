@@ -1,0 +1,24 @@
+h1 List of DungeonHistories
+
+p#notice 
+  = notice
+
+table
+  thead
+    tr
+      th STARTED_ON
+      th CLOSED_ON
+      th DUNGEON
+
+  tbody
+
+    - @dungeon_histories.each do |dh|
+      tr
+        td = dh.started_on
+        td = dh.closed_on
+        td = dh.dungeon.name
+        td = link_to 'EDIT', edit_dungeon_history_path(dh)
+br
+
+= link_to 'WRITE DUNGEON HISTORY', new_dungeon_history_path
+
