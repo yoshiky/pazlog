@@ -1,8 +1,10 @@
 h1 List of DungeonHistories
 
-p#notice 
+div#notice 
   = notice
 
+div.edlink
+  = link_to 'WRITE DUNGEON HISTORY', new_dungeon_history_path
 table
   thead
     tr
@@ -20,5 +22,6 @@ table
         td = link_to 'EDIT', edit_dungeon_history_path(dh)
 br
 
-= link_to 'WRITE DUNGEON HISTORY', new_dungeon_history_path
+div.edlink
+  = link_to 'WRITE DUNGEON HISTORY', new_dungeon_history_path
 

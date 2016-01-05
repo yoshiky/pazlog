@@ -3,7 +3,7 @@ class DungeonHistoriesController < ApplicationController
   before_action :get_all_dungeons, only: %w(new edit)
 
   def index
-    @dungeon_histories = DungeonHistory.order(:started_on, :id)
+    @dungeon_histories = DungeonHistory.order(started_on: :desc, id: :asc)
   end
 
   def new
