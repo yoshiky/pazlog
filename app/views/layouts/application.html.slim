@@ -9,6 +9,11 @@ html
     meta name = 'viewport' content = 'width=device-width,initial-scale=1'
 
   body
+    div.header
+      ul
+        li = link_to 'Monsters', monsters_path
+        li = link_to 'Dungeons', dungeons_path
+        li = link_to 'Histories', dungeon_histories_path
 
   = yield
 

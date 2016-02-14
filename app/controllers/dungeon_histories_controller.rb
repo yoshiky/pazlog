@@ -39,7 +39,7 @@ class DungeonHistoriesController < ApplicationController
   private
 
     def get_all_dungeons
-      @dungeons = Dungeon.order(:id)
+      @dungeons = Dungeon.order(:name)
     end
 
     def set_dungeon
