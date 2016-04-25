@@ -13,6 +13,18 @@ module Stub
         head :not_fount
       end
     end
+
+    def success
+      render status: 200, json: 'success'
+    end
+
+    def internal_server_error
+      render status: 500, json: 'internal server error'
+    end
+
+    def not_found
+      render status: 404, json: 'not_found'
+    end
   end
   
 end
